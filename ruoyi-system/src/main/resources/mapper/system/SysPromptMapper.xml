@@ -17,7 +17,7 @@
 
     <sql id="selectPromptVo">
         select prompt_id, chat_type, prompt_content, create_by, create_time, update_by, update_time, remark
-        from prompt
+        from sys_prompt
     </sql>
 
     <!-- 查询条件 -->
@@ -66,7 +66,7 @@
     </select>
 
     <insert id="insertPrompt" parameterType="SysPrompt">
-        insert into prompt (
+        insert into sys_prompt (
         <if test="chatType != null and chatType != '' ">chat_type,</if>
         <if test="promptContent != null and promptContent != '' ">prompt_content,</if>
         <if test="createBy != null and createBy != ''">create_by,</if>
@@ -82,7 +82,7 @@
     </insert>
 
     <update id="updatePrompt" parameterType="SysPrompt">
-        update prompt
+        update sys_prompt
         <set>
             <if test="chatType != null and chatType != ''">chat_type = #{chatType},</if>
             <if test="promptContent != null and promptContent != ''">prompt_content = #{promptContent},</if>
@@ -94,11 +94,11 @@
     </update>
 
     <delete id="deletePromptById" parameterType="Long">
-        delete from prompt where prompt_id = #{promptId}
+        delete from sys_prompt where prompt_id = #{promptId}
     </delete>
 
     <delete id="deletePromptByIds" parameterType="Long">
-        delete from prompt where prompt_id in
+        delete from sys_prompt where prompt_id in
         <foreach item="promptId" collection="array" open="(" separator="," close=")">
             #{promptId}
         </foreach>
