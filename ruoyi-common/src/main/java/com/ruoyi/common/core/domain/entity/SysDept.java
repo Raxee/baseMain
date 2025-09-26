@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.domain.BaseEntity;
@@ -15,6 +16,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 
  * @author ruoyi
  */
+@Setter
 public class SysDept extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
@@ -60,29 +62,14 @@ public class SysDept extends BaseEntity
         return deptId;
     }
 
-    public void setDeptId(Long deptId)
-    {
-        this.deptId = deptId;
-    }
-
     public Long getParentId()
     {
         return parentId;
     }
 
-    public void setParentId(Long parentId)
-    {
-        this.parentId = parentId;
-    }
-
     public String getAncestors()
     {
         return ancestors;
-    }
-
-    public void setAncestors(String ancestors)
-    {
-        this.ancestors = ancestors;
     }
 
     @NotBlank(message = "部门名称不能为空")
@@ -92,20 +79,10 @@ public class SysDept extends BaseEntity
         return deptName;
     }
 
-    public void setDeptName(String deptName)
-    {
-        this.deptName = deptName;
-    }
-
     @NotNull(message = "显示顺序不能为空")
     public Integer getOrderNum()
     {
         return orderNum;
-    }
-
-    public void setOrderNum(Integer orderNum)
-    {
-        this.orderNum = orderNum;
     }
 
     public String getLeader()
@@ -113,20 +90,10 @@ public class SysDept extends BaseEntity
         return leader;
     }
 
-    public void setLeader(String leader)
-    {
-        this.leader = leader;
-    }
-
     @Size(min = 0, max = 11, message = "联系电话长度不能超过11个字符")
     public String getPhone()
     {
         return phone;
-    }
-
-    public void setPhone(String phone)
-    {
-        this.phone = phone;
     }
 
     @Email(message = "邮箱格式不正确")
@@ -136,19 +103,9 @@ public class SysDept extends BaseEntity
         return email;
     }
 
-    public void setEmail(String email)
-    {
-        this.email = email;
-    }
-
     public String getStatus()
     {
         return status;
-    }
-
-    public void setStatus(String status)
-    {
-        this.status = status;
     }
 
     public String getDelFlag()
@@ -156,29 +113,14 @@ public class SysDept extends BaseEntity
         return delFlag;
     }
 
-    public void setDelFlag(String delFlag)
-    {
-        this.delFlag = delFlag;
-    }
-
     public String getParentName()
     {
         return parentName;
     }
 
-    public void setParentName(String parentName)
-    {
-        this.parentName = parentName;
-    }
-
     public List<SysDept> getChildren()
     {
         return children;
-    }
-
-    public void setChildren(List<SysDept> children)
-    {
-        this.children = children;
     }
 
     @Override
